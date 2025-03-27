@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Book</title>
+
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Update Book</h1>
+    <form action="/books/update/{{book._id}}" method="POST">
+        <input type="text" name="title" value="{{ book.title }}" required>
+        <input type="text" name="author" value="{{ book.author }}" required>
+        <input type="number" step="0.01" min="0" name="price" value="{{ book.price }}" required>
+        <input type="number" name="stock" value="{{ book.stock }}" min="0" required>
+        <button type="submit">Update</button>
+    </form>
+
+    <br>
+    <a href="/books/view">BacK</a>
+
+</body>
+
+</html>

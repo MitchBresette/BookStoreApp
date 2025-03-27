@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Book</title>
+
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Add New Book</h1>
+
+    <form action="/books/add" method="POST">
+        <input type="text" name="title" placeholder="Title" required>
+        <input type="text" name="author" placeholder="Author" required>
+        <input type="number" name="price" placeholder="Price" step="0.01" min="0" required>
+        <input type="number" name="stock" placeholder="Stock" min="0" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <br>
+    <a href="/books/view">Back</a>
+
+</body>
+
+</html>

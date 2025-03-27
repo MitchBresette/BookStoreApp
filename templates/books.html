@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore Inventory</title>
+
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Bookstore Inventory</h1>
+
+    <a href="/books/add">
+    <button>Add Book</button>
+    </a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td>${{book.price}}</td>
+                <td>{{book.stock}}</td>
+                <td>
+                    <a href="/books/update/{{book._id}}">
+                        <button>Update</button>
+                    </a>
+                </td>
+                <td>
+                    <form action="/books/delete/{{book._id}}" method="POST" onsubmit="return confirm('Delete this book?');">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+</body>
+
+</html>
