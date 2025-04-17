@@ -36,7 +36,7 @@ try:
     mongo.cx.admin.command("ping")
     print("---- Connected to MongoDB ----")
 except ServerSelectionTimeoutError:
-    print("failed to connect to MongoDB")
+        print("failed to connect to MongoDB")
 
 # ----------
 # database collection
@@ -146,7 +146,7 @@ def delete_book(book_id):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=8080)
 
 
 

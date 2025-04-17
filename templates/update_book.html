@@ -4,27 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Book</title>
+    <title>Update Book</title>
 
-    <style>
 
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
-<body>
+<body class="bg-light">
 
-    <h1>Update Book</h1>
-    <form action="/books/update/{{book._id}}" method="POST">
-        <input type="text" name="title" value="{{ book.title }}" required>
-        <input type="text" name="author" value="{{ book.author }}" required>
-        <input type="number" step="0.01" min="0" name="price" value="{{ book.price }}" required>
-        <input type="number" name="stock" value="{{ book.stock }}" min="0" required>
-        <button type="submit">Update</button>
-    </form>
+    <div class="container mt-5">
+        <h1 class="mb-4">Update Book</h1>
 
-    <br>
-    <a href="/books/view">BacK</a>
+        <form action="/books/update/{{book._id}}" method="POST" class="card p-4 shadow-sm bg-white">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" name="title" id="title" class="form-control" value="{{ book.title }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="author" class="form-label">Author</label>
+                <input type="text" name="author" id="author" class="form-control" value="{{ book.author }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input type="number" step="0.01" min="0" name="price" id="price" class="form-control" value="{{ book.price }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="stock" class="form-label">Stock</label>
+                <input type="number" name="stock" id="stock" class="form-control" value="{{ book.stock }}" min="0" required>
+            </div>
+
+            <div class="d-flex">
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a href="/books/view" class="btn btn-secondary ms-2">Back</a>
+            </div>
+        </form>
+    </div>
 
 </body>
 
